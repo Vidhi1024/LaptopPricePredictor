@@ -4,13 +4,19 @@ import numpy as np
 import joblib
 # import sklearn
 # from sklearn.preprocessing import LabelEncoder
+from sklearn.exceptions import InconsistentVersionWarning
+warnings.simplefilter("error", InconsistentVersionWarning)
 
 # print(sklearn.__version__)
 
 # pipe = pickle.load(open('pipe.pkl', 'rb'))
 # df = pickle.load(open('df.pkl', 'rb'))
-pipe = joblib.load(open('pipe.joblib', 'rb'))
-df = joblib.load(open('df.joblib', 'rb'))
+
+try:
+    pipe = joblib.load(open('pipe.joblib', 'rb'))
+    df = joblib.load(open('df.joblib', 'rb'))
+except InconsistentVersionWarning as w:
+   print(w.original_sklearn_version)
 
 st.title("Laptop Predictor")
 

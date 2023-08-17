@@ -2,6 +2,7 @@ import streamlit as st
 # import pickle
 import numpy as np
 import joblib
+import warnings
 # import sklearn
 # from sklearn.preprocessing import LabelEncoder
 from sklearn.exceptions import InconsistentVersionWarning

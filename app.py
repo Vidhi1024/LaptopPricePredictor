@@ -1,13 +1,16 @@
 import streamlit as st
-import pickle
+# import pickle
 import numpy as np
+import joblib
 # import sklearn
 # from sklearn.preprocessing import LabelEncoder
 
 # print(sklearn.__version__)
 
-pipe = pickle.load(open('pipe.pkl', 'rb'))
-df = pickle.load(open('df.pkl', 'rb'))
+# pipe = pickle.load(open('pipe.pkl', 'rb'))
+# df = pickle.load(open('df.pkl', 'rb'))
+pipe = joblib.load(open('pipe.joblib', 'rb'))
+df = joblib.load(open('df.joblib', 'rb'))
 
 st.title("Laptop Predictor")
 
